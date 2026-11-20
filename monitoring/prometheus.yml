@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 2s
+
+scrape_configs:
+  - job_name: 'spring-boot-url-shortener'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      # host.docker.internal lets Docker reach Spring Boot running on your Mac/Windows host
+      - targets: ['host.docker.internal:8080']
